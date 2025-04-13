@@ -5,6 +5,7 @@ import Typography from '@mui/material/Typography';
 import { DRAWER_WIDTH, MAIN_CONTENT_1, MAIN_CONTENT_2 } from './constants';
 import Layout from './Layout';
 import { useDrawer } from './DrawerContext';
+import AppRoutes from '../AppRoutes/Routes';
 
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
   ({ theme }) => ({
@@ -44,8 +45,7 @@ export default function MainContent() {
     <Layout>
         <Main open={open}>
             <DrawerHeader />
-            <Typography sx={{ marginBottom: 2 }}>{MAIN_CONTENT_1}</Typography>
-            <Typography sx={{ marginBottom: 2 }}>{MAIN_CONTENT_2}</Typography>
+            <AppRoutes />
         </Main>
     </Layout>
   );

@@ -15,6 +15,7 @@ import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import { DRAWER_WIDTH, LIST_ITEMS_1, LIST_ITEMS_2 } from './constants';
 import { useDrawer } from './DrawerContext';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 const DrawerHeader = styled('div')(({ theme }) => ({
   display: 'flex',
@@ -27,6 +28,11 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 export default function DrawerComponent() {
   const { open, handleDrawerClose } = useDrawer();
   const theme = useTheme();
+  const navigate = useNavigate(); // Initialize useNavigate
+
+  const handleListItemClick = (path) => {
+    navigate(path);
+  };
 
   return (
     <Drawer
@@ -49,26 +55,28 @@ export default function DrawerComponent() {
       </DrawerHeader>
       <Divider />
       <List>
-        {LIST_ITEMS_1.map((text, index) => (
-          <ListItem key={text} disablePadding>
+        {LIST_ITEMS_1.map((item, index) => (
+          <ListItem key={item.title} disablePadding onClick={() => handleListItemClick(item.path)}>
+            {/* Make ListItem clickable */}
             <ListItemButton>
               <ListItemIcon>
                 {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
               </ListItemIcon>
-              <ListItemText primary={text} />
+              <ListItemText primary={item.title} />
             </ListItemButton>
           </ListItem>
         ))}
       </List>
       <Divider />
       <List>
-        {LIST_ITEMS_2.map((text, index) => (
-          <ListItem key={text} disablePadding>
+        {LIST_ITEMS_2.map((item, index) => (
+          <ListItem key={item.title} disablePadding onClick={() => handleListItemClick(item.path)}>
+            {/* Make ListItem clickable */}
             <ListItemButton>
               <ListItemIcon>
                 {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
               </ListItemIcon>
-              <ListItemText primary={text} />
+              <ListItemText primary={item.title} />
             </ListItemButton>
           </ListItem>
         ))}

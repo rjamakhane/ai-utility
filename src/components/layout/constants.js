@@ -1,6 +1,12 @@
 // constants.js
 export const DRAWER_WIDTH = 240;
-export const LIST_ITEMS_1 = ['Content Gini', 'Email Gini'];
+export const LIST_ITEMS_1 = [{
+    title: 'Content Gini',
+    path: "/"
+ },{
+    title:'Email Gini',
+    path: "/email"
+}];
 export const LIST_ITEMS_2 = [];
 export const MAIN_CONTENT_1 = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
 tempor incididunt ut labore et dolore magna aliqua. Rhoncus dolor purus non
